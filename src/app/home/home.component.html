@@ -1,0 +1,124 @@
+<div class="main">
+    <div class="outerDiv">
+        <div class="header-top">
+          <div class="header-row"> 
+              <div class="logo">
+                  <img src="/assets/images/logo.png">
+                </div>
+                <div class="title">
+                    SALES DASHBOARD
+                </div>
+          </div>
+          
+        </div>
+      <div class="nav-bar-top">
+        <div class="nav-row">
+            <ul class="nav">
+                <li><a  role="button" (click)="getDashbordData('today')">TODAY</a></li>
+                <li><a href="#about">LAST WEEK</a></li>
+                <li><a href="#clients">LAST MONTH</a></li>  
+                <li><a href="#contact">THIS QUARTER</a></li>
+                <li><a href="#contact">THIS YEAR</a></li>
+              </ul>
+
+        </div>
+      </div>
+    
+      <div class="outer-nav">
+          <div class="nav-bar-left">
+    
+            </div>
+            <div class="nav-bar-right">
+          
+            </div>
+      </div>
+      <div class="outer-div">
+          <div class="funnel-box">
+              <div class="funnel">
+               
+                  <img src="/assets/images/funnel.png" width="85%">
+                 
+              </div>
+              <div class="card-box">
+                  
+              </div>
+              <div class="card-box">
+                  
+                </div>
+                <div class="card-box">
+                  
+                  </div>
+                 
+            </div>
+            <div class="card-right">
+                <div class="card-box-right" style="background-color:#1976D2; ">
+                  
+                  </div>
+                  <div class="card-box-right" style=" background-color:#2196F3;">
+                      
+                    </div>
+                    <div class="card-box-right" style=" background-color:#64B5F6;">
+                      
+                      </div>
+            </div>
+      </div>
+      
+      
+    
+      
+    </div>
+    <div class="table-div">
+      <div class="table-header">
+        Deatils
+      </div>
+        <div class="grid-view" style="overflow-x:auto;">
+            <table>
+              <tr>
+                <th>
+                    client
+                </th>
+                <th>
+                    date
+                </th>                
+                <th>
+                    meeting_location
+                </th>
+                <th>
+                    primary_contact_person
+                </th>
+                <th>
+                    purpose
+                </th>
+                <th>
+                    sales_rp
+                </th>
+                <th>
+                    status
+                </th>
+                <th>
+                    title
+                </th>
+                <th>
+                    verticle
+                </th>
+              </tr>
+              <tr *ngFor="let item of tableHeader.rawdata;let i = index">
+               
+                <td > {{tableHeader.rawdata[i].client}} </td> 
+                <td > {{item.date}} </td> 
+                <td > {{item.meeting_location}} </td> 
+                <td > {{item.primary_contact_person}} </td> 
+                <td > {{item.purpose}} </td> 
+                <td > {{item.sales_rp}} </td> 
+                <td > {{item.status}} </td> 
+                <td > {{item.title}} </td> 
+                <td > {{item.verticle}} </td> 
+              </tr>
+              
+              
+            </table>
+          </div>
+    </div>
+</div>
+
+

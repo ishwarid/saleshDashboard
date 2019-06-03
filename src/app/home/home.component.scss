@@ -1,0 +1,187 @@
+.main{
+    
+    position: relative;
+    display: block;
+    height: auto;
+}
+.outerDiv{
+    margin-left: 80px;
+    margin-right: 80px;
+    font-family: Roboto;
+    height: auto;
+}
+
+.header-top{
+   
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.header-row{
+    margin-top: auto;
+    margin-bottom: auto; 
+   
+}
+.title{
+   
+    font-size: 48px;
+    text-align: center;
+    float: right;
+    color: #231f20;
+  
+    
+}
+.logo{
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto; 
+    
+    
+   
+}
+.nav-bar-top{
+    position: relative;
+    // margin-top: 130px;
+    height: 50px;
+    background-color: white;
+   
+    
+
+}
+.outer-nav{
+    width: 100%;
+    top: 20px;
+    position: relative;
+
+}
+.nav-bar-left{
+    position: absolute;
+    height: 50px;
+    width: 80%;
+    background-color: white;
+    font-size: 14px;
+    color: #2c3e50;
+    opacity: 0.5;
+    font-family: Roboto;
+    float: left;
+}
+
+.nav-bar-right{
+    
+    height: 50px;
+    background-color: white;
+    font-size: 14px;
+    color: #2c3e50;
+    opacity: 0.5;
+    font-family: Roboto;
+    margin-left: calc(80% + 40px);
+}
+.outer-div{
+    top: 70px;
+    position: relative;
+}
+.funnel-box{
+    position: absolute;
+   
+    width: 80%;
+    float: left;
+}
+.funnel{
+    width: 70%;
+    float: left;
+}
+.card-box{
+    width: 290px;
+    height: 250px;
+    float: right;
+    background-color: white;
+    margin-bottom: 40px;
+  
+}
+.card-box-right{
+    width: 290px;
+    height: 250px;
+    float: right;   
+    margin-bottom: 40px;
+    background-image: url(/assets/images/winner.png);
+    background-repeat:no-repeat;
+    background-position: center bottom;
+    background-size: 170px;
+}
+.card-right{
+   float: right;   
+    margin-left: calc(80% + 40px);
+}
+.table-div{
+    margin-top: 75px;
+
+    width: 100%;
+    display: inline-block;
+    height: auto;
+    background-color: white;
+}
+.table-header{
+    font-size: 24px;
+    font-weight: normal;
+    color: #231f20;
+    font-family: Roboto;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
+.grid-view{
+    
+    position: relative;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: medium;
+    height: auto;
+    // margin-left: 10px;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  .nav-row{
+      display: flex;
+      flex-direction: column;
+  }
+  .nav-items{
+      margin-top: auto;
+      margin-bottom: auto;
+      position: absolute;
+  }
+ 
+  .nav {
+    
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+   
+    font-family: Roboto;
+    font-weight: normal;
+   
+   
+  }
+  .nav li {
+    display: inline-block;
+    font-size: 14x;
+    padding: 20px;   
+    color: #2c3e50;
+    opacity: 0.5;
+  }
+  a{
+    text-decoration: none;
+    color: #2c3e50;
+    cursor: pointer;
+  }
