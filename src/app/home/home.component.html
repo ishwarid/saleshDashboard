@@ -1,124 +1,321 @@
 <div class="main">
-    <div class="outerDiv">
-        <div class="header-top">
-          <div class="header-row"> 
-              <div class="logo">
-                  <img src="/assets/images/logo.png">
-                </div>
-                <div class="title">
-                    SALES DASHBOARD
-                </div>
-          </div>
-          
+  <div class="outerDiv">
+    <div class="header-top">
+      <div class="header-row">
+        <div class="logo">
+          <img src="/assets/images/logo.png">
         </div>
-      <div class="nav-bar-top">
+        <div class="title">
+          SALES DASHBOARD
+        </div>
+      </div>
+
+    </div>
+    <div class="nav-bar-top">
+      <div class="nav-row">
+        <ul class="nav">
+          <li [ngClass]="{'active-li': eventData == 'today'}"><a [ngClass]="{'active': eventData == 'today'}"
+              role="button" (click)="getDashbordData('today')">TODAY</a></li>
+          <li [ngClass]="{'active-li': eventData == 'last_week'}"><a [ngClass]="{'active': eventData == 'last_week'}"
+              role="button" (click)="getDashbordData('last_week')">LAST WEEK</a></li>
+          <li [ngClass]="{'active-li': eventData == 'last_month'}"><a [ngClass]="{'active': eventData == 'last_month'}"
+              role="button" (click)="getDashbordData('last_month')">LAST MONTH</a></li>
+          <li [ngClass]="{'active-li': eventData == 'last_quarter'}"><a
+              [ngClass]="{'active': eventData == 'last_quarter'}" role="button"
+              (click)="getDashbordData('last_quarter')">THIS QUARTER</a></li>
+          <li [ngClass]="{'active-li': eventData == 'last_year'}"><a [ngClass]="{'active': eventData == 'last_year'}"
+              role="button" (click)="getDashbordData('last_year')">THIS YEAR</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="outer-nav">
+      <div class="nav-bar-left">
+        <select class='select-option drop' required [(ngModel)]='optionSelected'
+          (ngModelChange)='onOptionsSelected($event,optionSelected)'>
+          <!-- <option class='option'  [value]="All">All Sales</option> -->
+          <option class='option' *ngFor='let option of options' [value]="option">{{option}}</option>
+        </select>
+      </div>
+      <div class="nav-bar-right">
         <div class="nav-row">
-            <ul class="nav">
-                <li><a  role="button" (click)="getDashbordData('today')">TODAY</a></li>
-                <li><a href="#about">LAST WEEK</a></li>
-                <li><a href="#clients">LAST MONTH</a></li>  
-                <li><a href="#contact">THIS QUARTER</a></li>
-                <li><a href="#contact">THIS YEAR</a></li>
-              </ul>
+          <ul class="nav-right">
+            <li [ngClass]="{'active-li': selectedItem == 'top'}"><a [ngClass]="{'active': selectedItem == 'top'}"
+                role="button" (click)="sortSalesRepData('top')">TOP</a></li>
+            <li [ngClass]="{'active-li': selectedItem == 'bottom'}"><a [ngClass]="{'active': selectedItem == 'bottom'}"
+                role="button" (click)="sortSalesRepData('bottom')">BOTTOM</a></li>
+          </ul>
 
         </div>
       </div>
-    
-      <div class="outer-nav">
-          <div class="nav-bar-left">
-    
-            </div>
-            <div class="nav-bar-right">
-          
-            </div>
-      </div>
-      <div class="outer-div">
-          <div class="funnel-box">
-              <div class="funnel">
-               
-                  <img src="/assets/images/funnel.png" width="85%">
-                 
-              </div>
-              <div class="card-box">
-                  
-              </div>
-              <div class="card-box">
-                  
-                </div>
-                <div class="card-box">
-                  
-                  </div>
-                 
-            </div>
-            <div class="card-right">
-                <div class="card-box-right" style="background-color:#1976D2; ">
-                  
-                  </div>
-                  <div class="card-box-right" style=" background-color:#2196F3;">
-                      
-                    </div>
-                    <div class="card-box-right" style=" background-color:#64B5F6;">
-                      
-                      </div>
-            </div>
-      </div>
-      
-      
-    
-      
     </div>
-    <div class="table-div">
-      <div class="table-header">
-        Deatils
-      </div>
-        <div class="grid-view" style="overflow-x:auto;">
-            <table>
-              <tr>
-                <th>
-                    client
-                </th>
-                <th>
-                    date
-                </th>                
-                <th>
-                    meeting_location
-                </th>
-                <th>
-                    primary_contact_person
-                </th>
-                <th>
-                    purpose
-                </th>
-                <th>
-                    sales_rp
-                </th>
-                <th>
-                    status
-                </th>
-                <th>
-                    title
-                </th>
-                <th>
-                    verticle
-                </th>
-              </tr>
-              <tr *ngFor="let item of tableHeader.rawdata;let i = index">
-               
-                <td > {{tableHeader.rawdata[i].client}} </td> 
-                <td > {{item.date}} </td> 
-                <td > {{item.meeting_location}} </td> 
-                <td > {{item.primary_contact_person}} </td> 
-                <td > {{item.purpose}} </td> 
-                <td > {{item.sales_rp}} </td> 
-                <td > {{item.status}} </td> 
-                <td > {{item.title}} </td> 
-                <td > {{item.verticle}} </td> 
-              </tr>
-              
-              
-            </table>
+    <div class="outer-div">
+      <div class="funnel-box">
+        <div class="funnel">
+
+          <img src="/assets/images/funnel.png" width="70%">
+          <div class="f1">
+            <div class="f-heading">
+              Lead In
+            </div>
+            <div class="f-value">
+              {{funnel_data.Lead_In}}
+            </div>
           </div>
+          <div class="f2">
+            <div class="f-heading">
+              Contact Made
+            </div>
+            <div class="f-value">
+              {{funnel_data.Contact_Made}}
+            </div>
+          </div>
+          <div class="f3">
+            <div class="f-heading">
+              Needs Defined
+            </div>
+            <div class="f-value">
+              {{funnel_data.Needs_Defined}}
+            </div>
+          </div>
+          <div class="f4">
+            <div class="f-heading">
+              Proposal Made
+            </div>
+            <div class="f-value">
+              {{funnel_data.Proposal_Made}}
+            </div>
+          </div>
+          <div class="f5">
+            <div class="f-heading">
+              Negotiation Started
+            </div>
+            <div class="f-value">
+              {{funnel_data.Negotiation_Started}}
+            </div>
+          </div>
+          <div class="f6">
+            <div class="f-Won">
+              Won
+            </div>
+            <div class="f-Won">
+              {{funnel_data.Won}}
+            </div>
+          </div>
+        </div>
+        <div class="card-col">
+          <div class="card-box">
+            <img src="/assets/images/ico-calls.png" class="img-call">
+            <div style="card-details">
+              <div class="heading">
+                CALLS
+              </div>
+              <div class="card-val">
+                {{call_done}}/{{total_call}}
+              </div>
+            </div>
+          </div>
+          <div class="card-box">
+            <img src="/assets/images/ico-wins.png" class="img-call">
+            <div class="heading">
+              WINS
+            </div>
+            <div class="card-val">
+              {{wins}}/{{total_wins}}
+            </div>
+
+          </div>
+          <div class="card-box">
+            <img src="/assets/images/ico-revenue.png" class="img-call">
+            <div class="heading">
+              INCREMENTED REVENUE
+            </div>
+            <div class="card-val">
+              {{revennu}}K/{{total_revenu}}K
+            </div>
+          </div>
+        </div>
+
+      
+      </div>
+      <div class="card-right">
+        <div class="card-box-right" style="background-color: #1976D2;">
+          <div class="name-div">
+            {{sales_persons[0].name}}
+          </div>
+          <div class="details-div">
+            <div class="table">
+              <div class="row">
+                <div class="cell-heading">
+                  NEW MRR
+                </div>
+                <div class="cell-val">
+                  {{sales_persons[0].rev}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="cell-heading">
+                  LOGOS
+                </div>
+                <div class="cell-val">
+                  {{sales_persons[0].logos}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="cell-heading">
+                  CALLS
+                </div>
+                <div class="cell-val">
+                  {{ sales_persons[0].calls}}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-box-right" style=" background-color:#2196F3;">
+          <div class="name-div">
+            {{sales_persons[1].name}}
+          </div>
+          <div class="details-div">
+            <div class="table">
+              <div class="row">
+                <div class="cell-heading">
+                  NEW MRR
+                </div>
+                <div class="cell-val">
+                  {{sales_persons[1].rev}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="cell-heading">
+                  LOGOS
+                </div>
+                <div class="cell-val">
+                  {{sales_persons[1].logos}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="cell-heading">
+                  CALLS
+                </div>
+                <div class="cell-val">
+                  {{ sales_persons[1].calls}}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-box-right" style=" background-color:#64B5F6;">
+          <div class="name-div">
+            {{sales_persons[2].name}}
+          </div>
+          <div class="details-div">
+            <div class="table">
+              <div class="row">
+                <div class="cell-heading">
+                  NEW MRR
+                </div>
+                <div class="cell-val">
+                  {{sales_persons[2].rev}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="cell-heading">
+                  LOGOS
+                </div>
+                <div class="cell-val">
+                  {{sales_persons[2].logos}}
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="cell-heading">
+                  CALLS
+                </div>
+                <div class="cell-val">
+                  {{ sales_persons[2].calls}}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
+
+  </div>
+  <div class="table-div">
+    <div class="table-header">
+      Details
+    </div>
+    <div class="grid-view" style="overflow-x:auto;">
+      <table>
+        <tr>
+          <th class="table-heading">
+            Sales Rep
+          </th>
+          <th class="table-heading">
+            Date
+          </th>
+          <th class="table-heading">
+            Client
+          </th>
+
+          <th class="table-heading">
+            Primary Contact Person
+          </th>
+          <th class="table-heading">
+            Title
+          </th>
+          <th class="table-heading">
+            Verticle
+          </th>
+          <th class="table-heading">
+            Meeting Location
+          </th>
+
+          <th class="table-heading">
+            Purpose of Interaction
+          </th>
+          <th class="table-heading">
+            Outcome and Remarks
+          </th>
+
+
+          <th class="table-heading">
+            Engaement Status
+          </th>
+        </tr>
+
+        <tr *ngFor="let item of tableHeader;let i = index"
+          [ngStyle]="{'background-color': colorSet(item.status.L[item.status.L.length - 1].S)}">
+          <td> {{item.sales_rp.S}} </td>
+          <td> {{item.date.S | date: 'MMM dd , yyyy' }} </td>
+          <td> {{item.client.S}} </td>
+          <td> {{item.primary_contact_person.S}} </td>
+          <td> {{item.title.S}} </td>
+          <td> {{item.verticle.S}} </td>
+          <td> {{item.meeting_location.S}} </td>
+          <td> {{item.purpose.S}} </td>
+          <td> {{item.outcome.S}} </td>
+
+          <td> {{item.status.L[item.status.L.length - 1].S}} </td>
+
+
+        </tr>
+
+
+      </table>
+    </div>
+  </div>
 </div>
-
-

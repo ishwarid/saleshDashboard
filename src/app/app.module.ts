@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CustomMaterialModule } from "../material.module";
 import { BackendService } from './backend.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CustomMaterialModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     BackendService],

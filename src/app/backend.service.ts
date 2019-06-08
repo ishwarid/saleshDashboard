@@ -15,8 +15,12 @@ export class BackendService {
   constructor(private httpClient: HttpClient) { }
 
     
-  getData(interval: string): any {
+  getData(interval: string, salesFilter: string): any {
+    if(salesFilter !== 'All'){
+      return this.httpClient.get("https://nzhd55ek4c.execute-api.ap-south-1.amazonaws.com/prod/?timeframe=" + interval +"&forverticle="+salesFilter);
+    }else{    
     return this.httpClient.get("https://nzhd55ek4c.execute-api.ap-south-1.amazonaws.com/prod/?timeframe=" + interval);
+    }
   }
  
 }
