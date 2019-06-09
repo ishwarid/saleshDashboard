@@ -1,3 +1,9 @@
+#Lambda
+Path src/lambda_functions/index.js
+Lambda Funcation:-
+    Two lambda functions one for genrating data and one for fetching data. Default is handler() which fetches data accorfing to filter
+
+
 # Dashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.1.
@@ -26,8 +32,3 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-
-####################
-
-Lambda Funcation:-
-    two lambda functions one for genrating data and one for fetching data. Default is handler() which fetches data accorfing to filter
