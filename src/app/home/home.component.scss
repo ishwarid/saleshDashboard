@@ -81,11 +81,20 @@
     top: 70px;
     position: relative;
 }
+.funnel-col{
+    left: 30%;
+}
 .funnel-box{
     position: absolute;
-   
     width: 80%;
-    float: left;
+    /* float: left; */
+    background-image: url(/assets/images/funnel.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    z-index: 60;
+    /* width: 100%; */
+    height: 700px;
+    background-size: inherit;
     
 }
 .funnel{
@@ -121,7 +130,7 @@
 }
 .f4{
     top: 0;    
-    margin-top: 21%;
+    margin-top: 22%;
     position: absolute;
     text-align: center;
     float: center;
@@ -129,7 +138,7 @@
 }
 .f5{
     top: 0;    
-    margin-top: 28%;
+    margin-top: 29%;
     position: absolute;
     text-align: center;
     float: center;
@@ -137,7 +146,7 @@
 }
 .f6{
     top: 0;    
-    margin-top: 36%;
+    margin-top: 37%;
     position: absolute;
     text-align: center;
     float: center;
@@ -147,6 +156,7 @@
     font-size: 48px;
     font-weight: bold;
     font-family: Roboto;
+    color: #fff;
 }
 .f-heading{
     font-size: 18px;
@@ -168,7 +178,7 @@
 } 
 .card-box{
     width: 100%;
-    height: 220px;
+    height: 230px;
     float: right;
     background-color: white;
     margin-bottom: 40px;
