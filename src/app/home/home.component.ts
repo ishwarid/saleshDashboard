@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../backend.service';
-
+declare var $;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,12 +22,15 @@ export class HomeComponent implements OnInit {
   options =["All"];
   optionSelected :String;
   selectedItem:String;
+  loading = {
+    salesData: false
+  };
   ngOnInit() {
     
     this.eventData = 'last_week';
     this.optionSelected = this.options[0];
     this.selectedItem = 'top'
-  this. sortSalesRepData(this.selectedItem)
+    this. sortSalesRepData(this.selectedItem)
     this.getDashbordData('last_week', this.optionSelected)
   }
 
@@ -47,13 +50,26 @@ onOptionsSelected(event){
      return "f8f9fb"
    }
  }
+ setLoading(field: string) {
+  this.loading[field] = true;
+}
 
+setLoadingComplete(field: string) {
+  // $("#" + field + "-overlay").fadeOut(500);
+  setTimeout(() => {
+    // Start fading out and hide after delay
+    this.loading[field] = false;
+    console.log("Changed to false");
+  }, 500);
+}
   getDashbordData(event: any, dropDown_value){
+    this.setLoading("salesData");
     this.eventData = event;
     dropDown_value = this.optionSelected;
     this.backendService
       .getData(event, dropDown_value)
       .subscribe(data => {
+        this.setLoadingComplete("salesData");
         this.sales_persons = data.sales_rep;
         this.funnel_data = data.funnel;
         

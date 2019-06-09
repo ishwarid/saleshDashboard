@@ -1,4 +1,11 @@
+<div id="salesData-overlay" *ngIf="loading.salesData">
+  <!-- <div class="spinner"></div> -->
+  <app-loading></app-loading>
+</div>
+
+
 <div class="main">
+
   <div class="outerDiv">
     <div class="header-top">
       <div class="header-row">
@@ -54,55 +61,58 @@
       <div class="funnel-box">
         <div class="funnel">
 
-          <img src="/assets/images/funnel.png" width="70%">
-          <div class="f1">
-            <div class="f-heading">
-              Lead In
+          <img src="/assets/images/funnel.png">
+          <div class="funnel-col">
+            <div class="f1">
+              <div class="f-heading">
+                Lead In
+              </div>
+              <div class="f-value">
+                {{funnel_data.Lead_In}}
+              </div>
             </div>
-            <div class="f-value">
-              {{funnel_data.Lead_In}}
+            <div class="f2">
+              <div class="f-heading">
+                Contact Made
+              </div>
+              <div class="f-value">
+                {{funnel_data.Contact_Made}}
+              </div>
+            </div>
+            <div class="f3">
+              <div class="f-heading">
+                Needs Defined
+              </div>
+              <div class="f-value">
+                {{funnel_data.Needs_Defined}}
+              </div>
+            </div>
+            <div class="f4">
+              <div class="f-heading">
+                Proposal Made
+              </div>
+              <div class="f-value">
+                {{funnel_data.Proposal_Made}}
+              </div>
+            </div>
+            <div class="f5">
+              <div class="f-heading">
+                Negotiation Started
+              </div>
+              <div class="f-value">
+                {{funnel_data.Negotiation_Started}}
+              </div>
+            </div>
+            <div class="f6">
+              <div class="f-Won">
+                Won
+              </div>
+              <div class="f-Won">
+                {{funnel_data.Won}}
+              </div>
             </div>
           </div>
-          <div class="f2">
-            <div class="f-heading">
-              Contact Made
-            </div>
-            <div class="f-value">
-              {{funnel_data.Contact_Made}}
-            </div>
-          </div>
-          <div class="f3">
-            <div class="f-heading">
-              Needs Defined
-            </div>
-            <div class="f-value">
-              {{funnel_data.Needs_Defined}}
-            </div>
-          </div>
-          <div class="f4">
-            <div class="f-heading">
-              Proposal Made
-            </div>
-            <div class="f-value">
-              {{funnel_data.Proposal_Made}}
-            </div>
-          </div>
-          <div class="f5">
-            <div class="f-heading">
-              Negotiation Started
-            </div>
-            <div class="f-value">
-              {{funnel_data.Negotiation_Started}}
-            </div>
-          </div>
-          <div class="f6">
-            <div class="f-Won">
-              Won
-            </div>
-            <div class="f-Won">
-              {{funnel_data.Won}}
-            </div>
-          </div>
+
         </div>
         <div class="card-col">
           <div class="card-box">
@@ -137,7 +147,7 @@
           </div>
         </div>
 
-      
+
       </div>
       <div class="card-right">
         <div class="card-box-right" style="background-color: #1976D2;">
