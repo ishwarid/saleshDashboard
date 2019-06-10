@@ -59,7 +59,7 @@
     </div>
     <div class="outer-div">
       <div class="funnel-box">
-        <div class="funnel">        
+        <div class="funnel">
 
         </div>
         <div class="funnel-col">
@@ -67,9 +67,12 @@
             <div class="f-heading">
               Lead In
             </div>
-            <div class="f-value">
+            <div class="f-value" *ngIf="(funnel_data | json) != ({} | json)">
               {{funnel_data.Lead_In}}
             </div>
+            <div class="f-value" *ngIf="(funnel_data | json) == ({} | json)">
+              0
+              </div>
           </div>
           <div class="f2">
             <div class="f-heading">
@@ -83,33 +86,49 @@
             <div class="f-heading">
               Needs Defined
             </div>
-            <div class="f-value">
-              {{funnel_data.Needs_Defined}}
-            </div>
+           
+            <div class="f-value" *ngIf="(funnel_data | json) != ({} | json)">
+                {{funnel_data.Needs_Defined}}
+              </div>
+              <div class="f-value" *ngIf="(funnel_data | json) == ({} | json)">
+                0
+                </div>
           </div>
           <div class="f4">
             <div class="f-heading">
               Proposal Made
             </div>
-            <div class="f-value">
-              {{funnel_data.Proposal_Made}}
-            </div>
+           
+            <div class="f-value" *ngIf="(funnel_data | json) != ({} | json)">
+                {{funnel_data.Proposal_Made}}
+              </div>
+              <div class="f-value" *ngIf="(funnel_data | json) == ({} | json)">
+                0
+                </div>
           </div>
           <div class="f5">
             <div class="f-heading">
               Negotiation Started
             </div>
-            <div class="f-value">
-              {{funnel_data.Negotiation_Started}}
-            </div>
+           
+            <div class="f-value" *ngIf="(funnel_data | json) != ({} | json)">
+                {{funnel_data.Negotiation_Started}}
+              </div>
+              <div class="f-value" *ngIf="(funnel_data | json) == ({} | json)">
+                0
+                </div>
           </div>
           <div class="f6">
             <div class="f-Won">
               Won
             </div>
-            <div class="f-Won">
-              {{funnel_data.Won}}
-            </div>
+            
+            <div class="f-Won" *ngIf="(funnel_data | json) != ({} | json)">
+                {{funnel_data.Won}}
+              </div>
+              <div class="f-Won" *ngIf="(funnel_data | json) == ({} | json)">
+                0
+                </div>
           </div>
         </div>
         <div class="card-col">
@@ -158,26 +177,43 @@
                 <div class="cell-heading">
                   NEW MRR
                 </div>
-                <div class="cell-val">
+                <div class="cell-val" *ngIf="sales_persons?.length > 0  ">
+
                   {{sales_persons[0].rev}}
                 </div>
+                <div class="cell-val" *ngIf="sales_persons?.length == 0  ">
+
+                  0
+                </div>
+
 
               </div>
               <div class="row">
                 <div class="cell-heading">
                   LOGOS
                 </div>
-                <div class="cell-val">
+
+                <div class="cell-val" *ngIf="sales_persons?.length > 0  ">
+
                   {{sales_persons[0].logos}}
                 </div>
+                <div class="cell-val" *ngIf="sales_persons?.length == 0  ">
 
+                  0
+                </div>
               </div>
               <div class="row">
                 <div class="cell-heading">
                   CALLS
                 </div>
-                <div class="cell-val">
-                  {{ sales_persons[0].calls}}
+
+                <div class="cell-val" *ngIf="sales_persons?.length > 0 ">
+
+                  {{sales_persons[0].calls}}
+                </div>
+                <div class="cell-val" *ngIf="sales_persons?.length  == 0  ">
+
+                  0
                 </div>
 
               </div>
@@ -194,8 +230,14 @@
                 <div class="cell-heading">
                   NEW MRR
                 </div>
-                <div class="cell-val">
+
+                <div class="cell-val" *ngIf="sales_persons?.length > 0  ">
+
                   {{sales_persons[1].rev}}
+                </div>
+                <div class="cell-val" *ngIf="sales_persons?.length == 0  ">
+
+                  0
                 </div>
 
               </div>
@@ -203,8 +245,13 @@
                 <div class="cell-heading">
                   LOGOS
                 </div>
-                <div class="cell-val">
+                <div class="cell-val" *ngIf="sales_persons?.length > 0  ">
+
                   {{sales_persons[1].logos}}
+                </div>
+                <div class="cell-val" *ngIf="sales_persons?.length == 0  ">
+
+                  0
                 </div>
 
               </div>
@@ -212,8 +259,13 @@
                 <div class="cell-heading">
                   CALLS
                 </div>
-                <div class="cell-val">
-                  {{ sales_persons[1].calls}}
+                <div class="cell-val" *ngIf="sales_persons?.length > 0 ">
+
+                  {{sales_persons[1].calls}}
+                </div>
+                <div class="cell-val" *ngIf="sales_persons?.length  == 0  ">
+
+                  0
                 </div>
 
               </div>
@@ -230,8 +282,13 @@
                 <div class="cell-heading">
                   NEW MRR
                 </div>
-                <div class="cell-val">
+                <div class="cell-val" *ngIf="sales_persons?.length > 0  ">
+
                   {{sales_persons[2].rev}}
+                </div>
+                <div class="cell-val" *ngIf="sales_persons?.length == 0  ">
+
+                  0
                 </div>
 
               </div>
@@ -239,91 +296,103 @@
                 <div class="cell-heading">
                   LOGOS
                 </div>
-                <div class="cell-val">
+                <div class="cell-val" *ngIf="sales_persons?.length > 0  ">
+
                   {{sales_persons[2].logos}}
                 </div>
+                <div class="cell-val" *ngIf="sales_persons?.length == 0  ">
 
-              </div>
-              <div class="row">
-                <div class="cell-heading">
-                  CALLS
-                </div>
-                <div class="cell-val">
-                  {{ sales_persons[2].calls}}
+                  0
                 </div>
 
               </div>
+
+          
+            <div class="row">
+              <div class="cell-heading">
+                CALLS
+              </div>
+              <div class="cell-val" *ngIf="sales_persons?.length > 0 ">
+
+                {{sales_persons[2].calls}}
+              </div>
+              <div class="cell-val" *ngIf="sales_persons?.length  == 0  ">
+
+                0
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
-
   </div>
-  <div class="table-div">
-    <div class="table-header">
-      Details
-    </div>
-    <div class="grid-view" style="overflow-x:auto;">
-      <table>
-        <tr>
-          <th class="table-heading">
-            Sales Rep
-          </th>
-          <th class="table-heading">
-            Date
-          </th>
-          <th class="table-heading">
-            Client
-          </th>
-
-          <th class="table-heading">
-            Primary Contact Person
-          </th>
-          <th class="table-heading">
-            Title
-          </th>
-          <th class="table-heading">
-            Verticle
-          </th>
-          <th class="table-heading">
-            Meeting Location
-          </th>
-
-          <th class="table-heading">
-            Purpose of Interaction
-          </th>
-          <th class="table-heading">
-            Outcome and Remarks
-          </th>
 
 
-          <th class="table-heading">
-            Engaement Status
-          </th>
-        </tr>
 
-        <tr *ngFor="let item of tableHeader;let i = index"
-          [ngStyle]="{'background-color': colorSet(item.status.L[item.status.L.length - 1].S)}">
-          <td> {{item.sales_rp.S}} </td>
-          <td> {{item.date.S | date: 'MMM dd , yyyy' }} </td>
-          <td> {{item.client.S}} </td>
-          <td> {{item.primary_contact_person.S}} </td>
-          <td> {{item.title.S}} </td>
-          <td> {{item.verticle.S}} </td>
-          <td> {{item.meeting_location.S}} </td>
-          <td> {{item.purpose.S}} </td>
-          <td> {{item.outcome.S}} </td>
-
-          <td> {{item.status.L[item.status.L.length - 1].S}} </td>
-
-
-        </tr>
-
-
-      </table>
-    </div>
+</div>
+<div class="table-div">
+  <div class="table-header">
+    Details
   </div>
+  <div class="grid-view" style="overflow-x:auto;">
+    <table>
+      <tr>
+        <th class="table-heading">
+          Sales Rep
+        </th>
+        <th class="table-heading">
+          Date
+        </th>
+        <th class="table-heading">
+          Client
+        </th>
+
+        <th class="table-heading">
+          Primary Contact Person
+        </th>
+        <th class="table-heading">
+          Title
+        </th>
+        <th class="table-heading">
+          Verticle
+        </th>
+        <th class="table-heading">
+          Meeting Location
+        </th>
+
+        <th class="table-heading">
+          Purpose of Interaction
+        </th>
+        <th class="table-heading">
+          Outcome and Remarks
+        </th>
+
+
+        <th class="table-heading">
+          Engaement Status
+        </th>
+      </tr>
+
+      <tr *ngFor="let item of tableHeader;let i = index"
+        [ngStyle]="{'background-color': colorSet(item.status.L[item.status.L.length - 1].S)}">
+        <td> {{item.sales_rp.S}} </td>
+        <td> {{item.date.S | date: 'MMM dd , yyyy' }} </td>
+        <td> {{item.client.S}} </td>
+        <td> {{item.primary_contact_person.S}} </td>
+        <td> {{item.title.S}} </td>
+        <td> {{item.verticle.S}} </td>
+        <td> {{item.meeting_location.S}} </td>
+        <td> {{item.purpose.S}} </td>
+        <td> {{item.outcome.S}} </td>
+
+        <td> {{item.status.L[item.status.L.length - 1].S}} </td>
+
+
+      </tr>
+
+
+    </table>
+  </div>
+</div>
 </div>
